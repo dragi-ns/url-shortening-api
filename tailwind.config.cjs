@@ -2,6 +2,10 @@
 module.exports = {
   content: ['./index.html', './src/**/*.ts'],
   theme: {
+    container: {
+      center: true,
+      padding: '1.5rem',
+    },
     extend: {
       colors: {
         cyan: 'hsl(180, 66%, 49%)',

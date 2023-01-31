@@ -7,7 +7,58 @@
     <title>Shortly URL shortening API | Frontend Mentor</title>
   </head>
   <body class="text-lg">
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <header>
+      <div class="container flex justify-between items-center py-8 relative">
+        <a href="./index.html">
+          <div class="logo lg:mr-4">
+            <h1 class="sr-only">Shortly</h1>
+            <img class="lg:w-36" src="./images/logo.svg" alt="Shortly" />
+          </div>
+        </a>
+        <nav
+          id="menu"
+          class="bg-dark-violet lg:bg-transparent text-white lg:text-very-dark-blue text-center lg:text-left px-6 py-11 lg:py-0 rounded-xl absolute lg:static top-full w-[calc(100%-3rem)] hidden lg:block">
+          <ul
+            class="flex flex-col lg:flex-row lg:items-center gap-7 text-xl lg:text-lg font-bold">
+            <li
+              class="lg:text-grayish-violet lg:hover:text-very-dark-blue transition-colors">
+              <a href="#">Features</a>
+            </li>
+            <li
+              class="lg:text-grayish-violet lg:hover:text-very-dark-blue transition-colors">
+              <a href="#">Pricing</a>
+            </li>
+            <li
+              class="lg:text-grayish-violet lg:hover:text-very-dark-blue transition-colors">
+              <a href="#">Resources</a>
+            </li>
+            <hr class="text-gray opacity-20 lg:hidden" />
+            <li
+              class="lg:text-grayish-violet lg:hover:text-very-dark-blue transition-colors lg:ml-auto">
+              <a href="#">Login</a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="bg-cyan hover:bg-opacity-80 text-white block rounded-full py-3 lg:px-7 transition-colors">
+                Sign Up
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button aria-label="Menu" id="menu-btn" class="lg:hidden">
+          <svg
+            class="fill-gray hover:fill-very-dark-blue transition-colors"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            width="36px"
+            height="36px">
+            <path
+              d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z" />
+          </svg>
+        </button>
+      </div>
+    </header>
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
