@@ -4,7 +4,13 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '1.5rem',
+      padding: {
+        DEFAULT: '1.5rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
     },
     extend: {
       colors: {
@@ -15,6 +21,10 @@ module.exports = {
         'grayish-violet': 'hsl(257, 7%, 63%)',
         'very-dark-blue': 'hsl(255, 11%, 22%)',
         'very-dark-violet': 'hsl(260, 8%, 14%)',
+      },
+      backgroundImage: {
+        'shorten-pattern-desktop': "url('../images/bg-shorten-desktop.svg')",
+        'shorten-pattern-mobile': "url('../images/bg-shorten-mobile.svg')",
       },
     },
   },
