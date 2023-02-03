@@ -1,8 +1,6 @@
+import Storage from './storage';
+import UI from './ui';
 import './style.css';
 
-// MOBILE MENU
-const menu = document.getElementById('menu') as HTMLElement;
-const menuBtn = document.getElementById('menu-btn') as HTMLButtonElement;
-menuBtn.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
-});
+const ui = new UI(new Storage('shortly-shorted-links'));
+ui.init();

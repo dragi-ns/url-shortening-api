@@ -112,98 +112,33 @@
       <section class="bg-gray bg-opacity-25 relative box-border">
         <div class="container">
           <!-- INPUT WIDGET START -->
-          <div
-            class="bg-shorten-pattern-mobile lg:bg-shorten-pattern-desktop bg-dark-violet bg-no-repeat bg-right-top lg:bg-cover flex flex-col gap-8 md:gap-6 lg:gap-8 md:flex-row rounded-xl px-6 py-7 md:px-7 md:py-8 lg:px-16 lg:py-12 mx-auto absolute left-0 right-0 bototm-full -translate-y-1/2 w-full max-w-[calc(100%-3rem)] sm:max-w-[calc(640px-4rem)] md:max-w-[calc(768px-4rem)] lg:max-w-[calc(1024px-8rem)] xl:max-w-[calc(1280px-10rem)] 2xl:max-w-[calc(1536px-12rem)]">
+          <form
+            id="shorten-form"
+            class="bg-shorten-pattern-mobile lg:bg-shorten-pattern-desktop bg-dark-violet bg-no-repeat bg-right-top lg:bg-cover flex flex-col gap-5 md:gap-6 lg:gap-8 md:flex-row rounded-xl p-5 md:px-16 md:py-12 mx-auto absolute left-0 right-0 bototm-full -translate-y-1/2 w-full max-w-[calc(100%-3rem)] sm:max-w-[calc(640px-4rem)] md:max-w-[calc(768px-4rem)] lg:max-w-[calc(1024px-8rem)] xl:max-w-[calc(1280px-10rem)] 2xl:max-w-[calc(1536px-12rem)]">
             <div class="w-full relative">
               <input
-                class="w-full px-3 lg:px-6 py-3 lg:py-4 rounded-md border-2 border-transparent outline-none border-red text-base lg:text-lg placeholder:text-red"
-                type="url"
+                class="peer w-full px-3 lg:px-6 py-3 lg:py-4 rounded-md border-[3px] border-transparent outline-none text-base lg:text-lg data-[invalid]:border-red data-[invalid]:placeholder:text-red"
+                type="text"
+                id="link"
+                name="link"
                 placeholder="Shorten a link here..."
-                required />
+                autocomplete="off" />
               <span
-                class="absolute w-full left-0 -bottom-1/2 text-red text-base italic"
-                >Please add a link
+                class="w-full mt-2 text-red text-base italic hidden peer-[[data-invalid]]:block md:absolute md:left-0 md:-bottom-1/2">
               </span>
             </div>
             <button
+              type="submit"
               class="bg-cyan hover:bg-opacity-80 md:w-56 text-white font-bold block w-full py-2 rounded-md">
               Shorten It!
             </button>
-          </div>
+          </form>
           <!-- INPUT WIDGET END -->
 
           <!-- SHORTENED URLS START -->
-          <div class="flex flex-col gap-6 pt-[6.70rem]">
-            <!-- SHORTENED URL START -->
-            <div
-              class="flex flex-col md:flex-row md:items-center bg-white rounded-md text-base md:text-lg text-very-dark-blue">
-              <p
-                class="p-4 md:p-6 overflow-hidden whitespace-nowrap text-ellipsis md:flex-1">
-                https://google.com
-              </p>
-              <hr class="text-gray opacity-70 md:hidden" />
-              <div
-                class="flex flex-col gap-4 md:flex-row md:items-center md:gap-6 p-4 md:p-6">
-                <a
-                  href="https://rel.ink/k4lkYk"
-                  class="text-cyan overflow-hidden whitespace-nowrap text-ellipsis">
-                  https://rel.ink/k4lkYk
-                </a>
-                <button
-                  class="bg-cyan hover:bg-opacity-80 text-white font-bold block w-full md:w-32 py-2 rounded-md">
-                  Copy
-                </button>
-              </div>
-            </div>
-            <!-- SHORTENED URL END -->
-
-            <!-- SHORTENED URL START -->
-            <div
-              class="flex flex-col md:flex-row md:items-center bg-white rounded-md text-base md:text-lg text-very-dark-blue">
-              <p
-                class="p-4 md:p-6 overflow-hidden whitespace-nowrap text-ellipsis md:flex-1">
-                https://frontendmentor.io/blabla/somethinglonger
-              </p>
-              <hr class="text-gray opacity-70 md:hidden" />
-              <div
-                class="flex flex-col gap-4 md:flex-row md:items-center md:gap-6 p-4 md:p-6">
-                <a
-                  href="https://rel.ink/k4lkYk"
-                  class="text-cyan overflow-hidden whitespace-nowrap text-ellipsis">
-                  https://rel.ink/k4lkYk
-                </a>
-                <button
-                  disabled
-                  class="bg-dark-violet text-white font-bold block w-full md:w-32 py-2 rounded-md">
-                  Copied
-                </button>
-              </div>
-            </div>
-            <!-- SHORTENED URL END -->
-
-            <!-- SHORTENED URL START -->
-            <div
-              class="flex flex-col md:flex-row md:items-center bg-white rounded-md text-base md:text-lg text-very-dark-blue">
-              <p
-                class="p-4 md:p-6 overflow-hidden whitespace-nowrap text-ellipsis md:flex-1">
-                https://google.com
-              </p>
-              <hr class="text-gray opacity-70 md:hidden" />
-              <div
-                class="flex flex-col gap-4 md:flex-row md:items-center md:gap-6 p-4 md:p-6">
-                <a
-                  href="https://rel.ink/k4lkYk"
-                  class="text-cyan whitespace-nowrap">
-                  https://rel.ink/k4lkYk
-                </a>
-                <button
-                  class="bg-cyan hover:bg-opacity-80 text-white font-bold block w-full md:w-32 py-2 rounded-md">
-                  Copy
-                </button>
-              </div>
-            </div>
-            <!-- SHORTENED URL END -->
-          </div>
+          <div
+            id="shortened-links"
+            class="flex flex-col gap-6 pt-[6.70rem]"></div>
           <!-- SHORTENDED URLS END -->
 
           <!-- FEATURE START -->
