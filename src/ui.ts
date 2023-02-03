@@ -131,24 +131,27 @@ export default class UI {
     const copyButton = document.createElement('button');
     copyButton.textContent = 'Copy';
     copyButton.className =
-      'bg-cyan hover:bg-opacity-80 text-white font-bold block w-full sm:w-32 py-2 rounded-md disabled:bg-dark-violet';
-    copyButton.onclick = (event) => this.copyFn(event, shortenedLink.short);
+      'bg-cyan hover:bg-light-cyan text-white font-bold block w-full sm:w-32 py-2 rounded-md disabled:bg-dark-violet transition-colors';
+    copyButton.onclick = (event) => this.copy(event, shortenedLink.short);
     controlsContainer.appendChild(copyButton);
 
     const deleteButton = document.createElement('button');
+    deleteButton.setAttribute('aria-label', 'Delete');
     deleteButton.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-  </svg>`;
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+      </svg>
+      <span class="sr-only">Delete</span>
+    `;
     deleteButton.className =
-      'bg-red fill-white hover:bg-opacity-80 font-bold block px-3 py-2 rounded-md';
-    deleteButton.onclick = this.deleteFn.bind(this);
+      'bg-red fill-white hover:bg-opacity-80 font-bold block px-3 py-2 rounded-md transition-colors';
+    deleteButton.onclick = this.delete.bind(this);
     controlsContainer.appendChild(deleteButton);
 
     return elementContainer;
   }
 
-  private async copyFn(event: MouseEvent, shortLink: string): Promise<void> {
+  private async copy(event: MouseEvent, shortLink: string): Promise<void> {
     const button = event.target as HTMLButtonElement;
     try {
       await navigator.clipboard.writeText(shortLink);
@@ -167,7 +170,7 @@ export default class UI {
     }, 1000);
   }
 
-  private deleteFn(event: MouseEvent): void {
+  private delete(event: MouseEvent): void {
     const button = event.target as HTMLButtonElement;
     const container = button.closest('.shortened-link') as HTMLDivElement;
     const id = container.dataset.id;
